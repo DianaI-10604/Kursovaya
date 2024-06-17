@@ -9,7 +9,6 @@
         AllowsTransparency="True"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Title="Онлайн-поликлиника" Height="450" Width="800"
-        Loaded="Window_Loaded"
         Background="Transparent">
 
     <!--ЗАПИСЬ К ВРАЧУ-->
@@ -48,7 +47,7 @@
                 </StackPanel>
 
                 <ContentControl Grid.Row="1" Grid.Column="1" x:Name="ContentControlPage">
-                    <local:RegistrationUser Margin="25,0,-25,0"/>
+                    <local:ServicesWithoutAuthorization/>
                 </ContentControl>
                 <!-- Основной контент -->
             </Grid>
@@ -82,7 +81,8 @@
 
                     <Button Content="Предстоящие посещения" Style="{StaticResource ButtonText}" />
 
-                    <Button Content="Медицинская карта" Style="{StaticResource ButtonText}" />
+                    <Button Content="Медицинская карта" Style="{StaticResource ButtonText}" 
+                            Click="MedicalRecords_ButtonClick"/>
                 </StackPanel>
 
                 <StackPanel Grid.Row="2" Visibility="{Binding InfoVisibility}">

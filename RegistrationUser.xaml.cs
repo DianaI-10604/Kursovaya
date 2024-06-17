@@ -63,7 +63,6 @@ namespace КурсоваяРабота
                         Snils = usersnils.Text,
                         Phonenumber = userphone.Text,
                         Password = userpassword.Password,
-                        //Passwordhash = "jvea5yt93rhq"
                     };
 
                     // Добавление пользователя в базу данных (псевдокод)

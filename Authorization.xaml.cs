@@ -13,19 +13,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using КурсоваяРабота.Context;
+using КурсоваяРабота.Models;
 
 namespace КурсоваяРабота
 {
-    /// <summary>
-    /// Логика взаимодействия для Authorization.xaml
-    /// </summary>
     public partial class Authorization : UserControl
     {
+        //public event EventHandler<UserAuthenticatedEventArgs> UserAuthenticated;
 
-        private MainWindow _windowcontext;
+        private UserControl _user;
         public Authorization()
         {
             InitializeComponent();
+        }
+        
+        public Authorization(UserControl user)
+        {
+            InitializeComponent();
+
+            if (user != null)
+            {
+                _user = user;
+            }
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -39,10 +48,10 @@ namespace КурсоваяРабота
                 var user = db.Users.FirstOrDefault(u => u.Phonenumber == phoneNumber && u.Password == passwordUser);
                 if (user != null)
                 {
+                    //OnUserAuthenticated(new UserAuthenticatedEventArgs(user));
                     // Если пользователь найден, выполните переход на следующее окно или UserControl
                     MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
                     mainWindow.ContentControlPage.Content = new MainMenu();
-                   
                 }
                 else
                 {
@@ -50,5 +59,19 @@ namespace КурсоваяРабота
                 }
             }
         }
+        //protected virtual void OnUserAuthenticated(UserAuthenticatedEventArgs e)
+        //{
+        //    UserAuthenticated?.Invoke(this, e);
+        //}
     }
+
+    //public class UserAuthenticatedEventArgs : EventArgs
+    //{
+    //    public User AuthenticatedUser { get; }
+
+    //    public UserAuthenticatedEventArgs(User user)
+    //    {
+    //        AuthenticatedUser = user;
+    //    }
+    //}
 }

@@ -42,7 +42,7 @@
                 
             </WrapPanel>
 
-            <Image Source="/Images/health.png" Grid.Row="0" Grid.Column="1" Width="70" Height="70" Grid.RowSpan="2"
+            <Image Source="/Image/health.png" Grid.Row="0" Grid.Column="1" Width="70" Height="70" Grid.RowSpan="2"
                    Margin="0 0 0 120"/>
 
             <WrapPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">

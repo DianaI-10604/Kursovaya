@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Microsoft.EntityFrameworkCore;
 using КурсоваяРабота.Models;
 
@@ -71,6 +72,23 @@ public partial class PolyclinicContext : DbContext
                 .HasMaxLength(100)
                 .HasColumnName("specialty");
         });
+
+        //modelBuilder.Entity<upcomingappointment>(entity =>
+        //{
+        //    entity.HasKey(e => e.Id).HasName("upcomingappointment_pkey");
+
+        //    entity.ToTable("upcomingappointment");
+
+        //    entity.Property(e => e.Id).HasColumnName("id");
+        //    entity.Property(e => e.user_id).HasColumnName("user_id");
+        //    entity.Property(e => e.doctor_id).HasColumnName("doctor_id");
+        //    entity.Property(e => e.appointmenttime).HasColumnName("appointmenttime");
+
+        //    entity.HasOne(d => d.User).WithMany(p => p.upcomingappointment)
+        //        .HasForeignKey(d => d.Id)
+        //        .OnDelete(DeleteBehavior.ClientSetNull)
+        //        .HasConstraintName("upcomingappointment_user_id_fkey");
+        //});
 
         modelBuilder.Entity<Medicalrecord>(entity =>
         {

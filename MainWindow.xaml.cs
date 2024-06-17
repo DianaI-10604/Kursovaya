@@ -11,18 +11,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Windows.Media.Animation;
+using КурсоваяРабота.Models;
 
 namespace КурсоваяРабота
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        private User _user;
         private Visibility _infoVisibility = Visibility.Collapsed;
         public Visibility InfoVisibility
         {
@@ -103,6 +100,12 @@ namespace КурсоваяРабота
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void MedicalRecords_ButtonClick(object sender, RoutedEventArgs e)
+        {
+            MedicalRecords records = new MedicalRecords();
+            ContentControlPage.Content = records;
         }
     }
 }

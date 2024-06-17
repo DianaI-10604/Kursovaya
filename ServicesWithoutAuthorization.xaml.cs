@@ -17,16 +17,27 @@ namespace КурсоваяРабота
 {
     public partial class ServicesWithoutAuthorization : UserControl
     {
+        private UserControl _user;
+
         public ServicesWithoutAuthorization()
         {
             InitializeComponent();
+        }
+        public ServicesWithoutAuthorization(UserControl user)
+        {
+            InitializeComponent();
+
+            if (user != null)
+            {
+                _user = user;
+            }
         }
 
         //метод для входа в свой аккаунт
         private void SignIn_ButtonClick(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
-            mainWindow.ContentControlPage.Content = new Authorization();
+            mainWindow.ContentControlPage.Content = new Authorization(_user);
         }
 
         //переходим к регистрации пользователя
